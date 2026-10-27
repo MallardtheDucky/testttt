@@ -2,10 +2,10 @@
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Battle Mechanics Test</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cormorant+Garamond:wght@500;600;700&family=Special+Elite&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css"></head><body>
 <div id="bgl"><div class="floor"></div></div><div id="gh"></div><div id="em"></div>
-<header><div class="brand"><span class="logo">🐉</span><div><h1>Battle Mechanics Test</h1><p class="sub">Now on your smart fridge</p></div></div>
+<header><div class="brand"><span class="logo">☢️</span><div><h1>Battle Mechanics Test</h1><p class="sub">Now on your smart fridge</p></div></div>
 <nav><button class="b on" id="tS">Sandbox</button><button class="b" id="tT">Fight Todd Howard</button><button class="b" id="au" aria-pressed="true">AUDIO: ON</button><div id="yt" style="position:absolute;left:-9999px;width:1px;height:1px"></div></nav></header><div id="cmp"><span id="cmpt"></span></div>
 <main>
 <section id="sb">
@@ -35,13 +35,16 @@
  <p class="note">Damage you deal banks toward drawing cards. One card per turn. Anything he swings at an empty board hits you.</p>
  <div class="log" id="lg"></div>
 </section>
-<section id="hd" class="hide"><div class="panel"><div class="row" style="justify-content:space-between"><b>TODD HOWARD</b><span class="lbl" id="hn"></span></div><div class="bar"><i class="f2" id="hy"></i></div><div class="say" id="hq" style="margin:8px 0 0"></div></div>
-<canvas id="cv" width="640" height="400" style="width:100%;background:#0a0e13;touch-action:none;border:1px solid var(--ln);cursor:crosshair"></canvas>
-<div class="row" style="margin-top:10px"><button class="b" id="hr">Reload (R)</button><button class="b" id="hx">Quit</button></div></section>
+<section id="hd" class="hide"><div class="panel"><div class="row" style="justify-content:space-between"><b>TODD HOWARD</b><span class="lbl" id="hn"></span></div><div class="bar"><i id="hy"></i></div><div class="say" id="hq" style="margin:8px 0 0"></div></div>
+<div id="hstage"><div id="hcw"><canvas id="cv"></canvas></div>
+<div id="hch" class="hide"><div class="panel"><div class="row" style="justify-content:space-between"><span class="lbl">You are black. He is white and opens.</span><span class="hclock" id="hck">3:00</span></div><div class="lbl" id="hth" style="min-height:1.4em;margin-top:4px"></div><div id="hbd"></div></div></div>
+<div id="hfl"></div></div>
+<div class="row" style="margin-top:10px"><button class="b hide" id="hr">Reload (R)</button><button class="b" id="hx">Quit</button></div>
+<div class="log" id="hlg" style="margin-top:12px"></div></section>
 <p class="note" style="margin-top:24px">Fight music streams from YouTube. It needs a browser that can reach YouTube and a page served over http.</p>
 </main>
 <div class="ov hide" id="gm"><div class="box"><b>PRESS X TO DOUBT</b><p class="lbl" style="margin-top:6px">Stop the needle inside the yellow band.</p>
  <div class="track"><i class="zone" id="gz"></i><b class="pin" id="gp"></b></div><button class="b go" id="gb">Doubt</button><p id="gn" style="min-height:22px"></p></div></div>
 <div class="ov hide" id="end"><div class="box"><h2 id="et" style="margin-top:0"></h2><p id="ee"></p><button class="b go" id="eb">Again</button></div></div>
-<div id="lt"><b>Loading</b><span id="lts"></span></div>
-<script src="script.js"></script></body></html>
+<div id="hwipe"></div><div id="lt"><b>Loading</b><span id="lts"></span></div>
+<script src="chess.js"></script><script src="script.js"></script><script src="hard.js"></script></body></html>
