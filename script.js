@@ -4,14 +4,19 @@ const D=[["Dogmeat","🐕",30],["Canvas Bag","🎒",40],["Horse Armor","🐴",10
 const QT={"Dogmeat":"Good boy.","Canvas Bag":"Collector’s Edition. Nylon was not an option.","Horse Armor":"Two dollars fifty. Still worth it.","Codsworth":"Mum? Mum? Mum?","Preston Garvey":"Another settlement needs your help.","Vault Boy":"Thumbs up. Everything is fine.","Skyrim Guard":"I used to be an adventurer like you. Then I took an arrow in the knee.","Nord Cheese Wheel":"It rolls down the hill. It always rolls down the hill.","Bucket on Head":"He can see nothing. Neither can the AI. It just works.","Power Armor":"Fusion core at two percent. Of course."};
 const E=[["bugs in the engine","🐛",12,20],["flying spoons","🥄",16,16],["paid mods","💸",20,14],["load screens","⏳",36,10],["radiant quests","📜",40,10],["Skyrim ports","🐉",90,5]];
 const ICON={};D.forEach(d=>ICON[d[0]]=d[1]);E.forEach(e=>ICON[e[0]]=e[1]);ICON["Skyrim Port"]="🐉";
-function card(u,cls){const e=document.createElement("div");e.className="card "+cls;e.innerHTML='<div class="e">'+(ICON[u.name]||"?")+'</div>'+u.name+'<b>'+Math.max(0,u.hp)+'</b>';return e}
+
+const IMG={"Dogmeat":"dogmeat.webp","Canvas Bag":"canvas-bag.webp","Horse Armor":"horse-armor.webp","Codsworth":"codsworth.webp","Preston Garvey":"preston-garvey.webp","Vault Boy":"vault-boy.webp","Skyrim Guard":"skyrim-guard.webp","Nord Cheese Wheel":"cheese-wheel.svg","Bucket on Head":"bucket-on-head.webp","Power Armor":"power-armor.webp"};
+
+function pic(n){return IMG[n]?'<img class="pic" src="assets/characters/'+IMG[n]+'" alt="'+n+'">':(ICON[n]||"?")}
+
+function card(u,cls){const e=document.createElement("div");e.className="card "+cls;e.innerHTML='<div class="e">'+pic(u.name)+'</div>'+u.name+'<b>'+Math.max(0,u.hp)+'</b>';return e}
 function paint(e,h){e.querySelector("b").textContent=Math.max(0,h);if(h<=0)e.classList.add("dead")}
 function show(id){["sb","td","hd"].forEach(s=>$(s).classList.toggle("hide",s!=id))}
 function tab(w){if(w==="t"){hardIntro();return}if(typeof hard!=="undefined"&&hard)hardQuit();show("sb");[["S","s"],["T","t"]].forEach(k=>$("t"+k[0]).classList.toggle("on",k[1]===w));gh("")}
 $("tS").onclick=()=>tab("s");$("tT").onclick=()=>tab("t");
 let last=null,busy=false;
 $("se").innerHTML=E.map((e,i)=>'<option value="'+i+'">'+e[1]+" "+e[0]+" ("+e[2]+" a raid)</option>").join("");
-$("sr").innerHTML=D.map(d=>'<label>'+d[1]+" "+d[0]+" <b style='color:var(--ac)'>"+d[2]+'</b><input type="number" min="0" max="12" value="0" data-n="'+d[0]+'"></label>').join("");
+$("sr").innerHTML=D.map(d=>'<label>'+(IMG[d[0]]?pic(d[0]):d[1])+" "+d[0]+" <b style='color:var(--ac)'>"+d[2]+'</b><input type="number" min="0" max="12" value="0" data-n="'+d[0]+'"></label>').join("");
 function roster(){return[...document.querySelectorAll("#sr input")].map(i=>({d:D.find(d=>d[0]==i.dataset.n),n:Math.max(0,Math.min(12,+i.value||0))})).filter(r=>r.n)}
 function sums(){const e=E[$("se").value],n=Math.max(1,Math.min(12,+$("sc").value||1)),a=Math.max(1,Math.round(e[2]/Math.min(n,e[3])));const r=roster();
  $("ss").innerHTML="<span>"+n+" x "+e[0]+", "+a+" attack each = <b>"+a*n+"</b> a round</span><span>"+r.reduce((s,x)=>s+x.n,0)+" defenders = <b>"+r.reduce((s,x)=>s+x.d[2]*x.n,0)+"</b> defence</span>"}
@@ -186,6 +191,6 @@ $("cmpt").textContent="N   ·   TODD HOWARD ◆   ·   NE   ·   YOUR FRIDGE ◆
 const TIPS=["Did you know? Fallout is also available on your smart fridge.","It just works.","Sixteen times the detail. Zero times the fixes.","Fallout 3 is Oblivion with guns. And that is fine.","Paid mods are about supporting creators.","Horse armor is only two dollars fifty. Again.","Every NPC in the world can be crushed by a bucket.","Starfield has over a thousand planets. Most of them are empty.","Fallout 76 is now fully working. Probably.","Remember to buy Skyrim again.","Tip: save often. The game will not.","Collector’s Edition canvas bag. Nylon not included.","Another settlement needs your help.","Please stand by. Your game is loading. Again.","You can now play Skyrim on your watch. You should not."];
 function tipNow(){const e=$("lts");e.style.opacity=0;setTimeout(()=>{e.textContent=R(TIPS);e.style.opacity=1},500)}
 $("lts").textContent=R(TIPS);setInterval(tipNow,9000);
-function roll(){const c=document.createElement("div");c.className="cw";c.textContent="\u2622\uFE0F";document.body.appendChild(c);setTimeout(()=>c.remove(),9200)}
+function roll(){const c=document.createElement("div");c.className="cw";c.innerHTML='<img src="assets/characters/cheese-wheel.svg" alt="">';document.body.appendChild(c);setTimeout(()=>c.remove(),9200)}
 setTimeout(roll,5000);setInterval(roll,28000);
 $("tf").onclick=()=>{if(T)lg("Todd Howard tried to hack a terminal. He is now locked out. It just works.","g")};

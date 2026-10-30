@@ -23,7 +23,8 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;bac
 header,main,#cmp{position:relative;z-index:2}
 header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:14px 4vw;border-bottom:1px solid var(--ln2);background:linear-gradient(180deg,rgba(8,26,16,.95),rgba(3,10,6,.6))}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--ic);border-radius:50%;font-size:1.5rem;line-height:1;box-shadow:0 0 14px rgba(61,255,138,.35),inset 0 0 10px rgba(61,255,138,.2)}
+.logo{display:grid;place-items:center;width:84px;height:46px;line-height:1}
+.logo img{width:100%;height:auto;max-height:46px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(255,212,59,.45))}
 h1{margin:0;font:400 2rem/1 'VT323',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ic);text-shadow:0 0 10px rgba(61,255,138,.6)}
 .sub{margin:4px 0 0;font:400 .66rem/1 'Share Tech Mono',monospace;letter-spacing:.3em;text-transform:uppercase;color:var(--ac)}
 nav{display:flex;flex-wrap:wrap;gap:8px}
@@ -55,7 +56,10 @@ main{max-width:980px;margin:0 auto;padding:18px 4vw 90px}
 .bar.mini{width:150px}
 .cards{display:flex;flex-wrap:wrap;gap:8px;min-height:112px}
 .card{width:86px;border:1px solid var(--ln);background:linear-gradient(#0a1c11,#030906);text-align:center;padding:6px 4px;position:relative;font:400 .62rem/1.2 'Share Tech Mono',monospace;letter-spacing:.02em;animation:in .3s;box-shadow:inset 0 3px 0 var(--bc,#1d5a37)}
-.card .e{font-size:1.7rem;line-height:1.3}.card b{display:block;color:var(--ac);font:400 1.35rem/1.1 'VT323',monospace}
+.card .e{font-size:1.7rem;line-height:1.3}
+.card .e .pic{width:56px;height:56px;object-fit:cover;display:block;margin:0 auto;border:1px solid var(--ln2);image-rendering:auto}
+#sr label .pic{width:28px;height:28px;object-fit:cover;vertical-align:middle;margin-right:6px;border:1px solid var(--ln2)}
+.card b{display:block;color:var(--ac);font:400 1.35rem/1.1 'VT323',monospace}
 .card.en{--bc:var(--bd);border-color:#6e2a1c}.card.me{--bc:var(--ic);border-color:var(--ln2)}
 .card.dead{opacity:.3;filter:grayscale(1)}.card.hit{animation:hit .3s}
 .slot{width:86px;height:110px;border:1px dashed rgba(61,255,138,.3);background:rgba(61,255,138,.03)}
@@ -117,7 +121,8 @@ select{background:#04100a;border:1px solid var(--ln2);padding:7px}
 #lt{position:fixed;left:0;right:0;bottom:0;z-index:48;padding:9px 4vw;background:linear-gradient(0deg,rgba(2,5,3,.96),rgba(2,5,3,.6));border-top:1px solid var(--ln);text-align:center;font:400 .85rem/1.3 'Share Tech Mono',monospace;color:var(--tx);pointer-events:none}
 #lt b{font:400 1.05rem/1 'VT323',monospace;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);margin-right:12px}
 #lts{transition:opacity .5s}
-.cw{position:fixed;bottom:44px;left:-60px;font-size:2.2rem;z-index:48;pointer-events:none;animation:roll 9s linear forwards}
+.cw{position:fixed;bottom:44px;left:-60px;width:44px;height:44px;z-index:48;pointer-events:none;animation:roll 9s linear forwards}
+.cw img{width:100%;height:100%;display:block}
 @keyframes roll{to{left:105vw;transform:rotate(1440deg)}}
 #cv{display:block;width:100%;height:min(64vh,480px);background:#030a06;touch-action:none;cursor:crosshair;border:1px solid var(--ln2);box-shadow:0 0 24px rgba(61,255,138,.14)}
 .shake{animation:sh .45s}@keyframes sh{25%{transform:translate(-5px,2px)}60%{transform:translate(5px,-2px)}}
